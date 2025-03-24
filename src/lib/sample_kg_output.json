@@ -1,0 +1,63 @@
+{
+    "nodes": [
+        {
+            "id": "1",
+            "type": "gene",
+            "name": "EGFR"
+        },
+        {
+            "id": "2",
+            "type": "disease",
+            "name": "NSCLC"
+        },
+        {
+            "id": "3",
+            "type": "drug",
+            "name": "Gefitinib"
+        },
+        {
+            "id": "4",
+            "type": "pathway",
+            "name": "MAPK Signaling"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "1",
+            "source": "1",
+            "target": "2",
+            "relation": "contributes_to_or_causes",
+            "weightage": 3,
+            "evolution": {
+                "2005": 0.8,
+                "2010": 0.9,
+                "2015": 1,
+                "2020": 2,
+                "2025": 3
+            }
+        },
+        {
+            "id": "2",
+            "source": "3",
+            "target": "1",
+            "relation": "targets",
+            "weightage": 0.95,
+            "evolution": {
+                "2015": 0.9,
+                "2025": 0.95
+            }
+        },
+        {
+            "id": "3",
+            "source": "1",
+            "target": "4",
+            "relation": "participates_in",
+            "weightage": 0.85,
+            "evolution": {
+                "2005": 0.8,
+                "2015": 0.9,
+                "2025": 0.95
+            }
+        }
+    ]
+} 
