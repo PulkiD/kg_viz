@@ -5,19 +5,15 @@ import * as d3 from 'd3';
 import type { GraphData, Node, Relationship } from '@/types/graph';
 import { SimulationNodeDatum, SimulationLinkDatum } from 'd3';
 import EvolutionControl from '@/components/common/EvolutionControl';
+import { getNodeColors } from '@/config/visualization';
 
 interface GraphVisualizationProps {
   data: GraphData;
   searchQuery?: string;
 }
 
-// Define color scheme for different node types with brighter colors for dark theme
-const nodeColors: { [key: string]: string } = {
-  gene: '#FF6B6B',      // bright coral red
-  disease: '#4ECDC4',   // bright turquoise
-  drug: '#45B7D1',      // bright blue
-  pathway: '#96CEB4',   // bright sage green
-};
+// Get node colors from configuration
+const nodeColors = getNodeColors();
 
 interface NodeInfo {
   node: Node;
@@ -490,7 +486,7 @@ export default function GraphVisualization({ data, searchQuery }: GraphVisualiza
             <p className="text-sm text-gray-400">Type: <span className="text-white">{selectedEdge.edge.relation}</span></p>
             <p className="text-sm text-gray-400">From: <span className="text-white">{selectedEdge.edge.source.name}</span></p>
             <p className="text-sm text-gray-400">To: <span className="text-white">{selectedEdge.edge.target.name}</span></p>
-            <p className="text-sm text-gray-400">Weight: <span className="text-white">{selectedEdge.edge.weightage}</span></p>
+            <p className="text-sm text-gray-400">Weight: <span className="text-white">{selectedEdge.edge.weight}</span></p>
             {Object.entries(selectedEdge.edge.properties || {}).map(([key, value]) => (
               <p key={key} className="text-sm text-gray-400">
                 {key}: <span className="text-white">{value as string}</span>

@@ -24,7 +24,7 @@ export interface Relationship {
     source: string;
     target: string;
     relation: string;
-    weightage: number;
+    weight: number;
     properties?: Record<string, string | number | boolean>;
     evolution?: Evolution;
     isActive?: boolean;
